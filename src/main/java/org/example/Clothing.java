@@ -32,6 +32,51 @@ class Clothing {
     }
 
     /**
+     * Returns the type of the clothing item.
+     *
+     * @return a String representing the type (e.g., "T-shirt", "Jacket")
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Returns the brand of the clothing item.
+     *
+     * @return a String representing the brand (e.g., "Nike", "Adidas")
+     */
+    public String getBrand() {
+        return brand;
+    }
+
+    /**
+     * Returns the color of the clothing item.
+     *
+     * @return a String representing the color (e.g., "Red", "Black")
+     */
+    public String getColor() {
+        return color;
+    }
+
+    /**
+     * Returns the price of the clothing item.
+     *
+     * @return a double representing the price in USD
+     */
+    public double getPrice() {
+        return price;
+    }
+
+    /**
+     * Returns the size of the clothing item.
+     *
+     * @return an integer representing the numeric size (e.g., 40, 42)
+     */
+    public int getSize() {
+        return size;
+    }
+
+    /**
      * Validates constructor arguments.
      *
      * @param type  clothing type
