@@ -119,4 +119,22 @@ class Clothing {
                 ", size=" + size +
                 '}';
     }
+
+    /**
+     * Compares Clothing objects for equality by all fields.
+     *
+     * @param obj the object to compare with
+     * @return true if objects are equal, false otherwise
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof org.example.Clothing other)) return false;
+
+        return Double.compare(other.getPrice(), getPrice()) == 0 &&
+                other.getSize() == getSize() &&
+                Objects.equals(other.getType(), getType()) &&
+                Objects.equals(other.getBrand(), getBrand()) &&
+                Objects.equals(other.getColor(), getColor());
+    }
 }
