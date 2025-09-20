@@ -6,7 +6,7 @@ This project demonstrates a simple Clothing management program in Java. It allow
 ## Calculation of the task variant
 Number in the group list: **15**;
 
-C11 = 15 % 11 = **4**;
+C11 = 15 % 11 = **4**.
 
 ## Features
 - Create Clothing objects with type, brand, color, price, and size.
@@ -37,7 +37,7 @@ java -cp src/main/java org.example.Main
 ```
 
 ## Unit tests
-This project includes 17 unit tests using JUnit 5 to ensure the correctness of all core functionalities, including:
+This project includes **17** unit tests using JUnit 5 to ensure the correctness of all core functionalities, including:
 
 - Creating valid Clothing objects and verifying their fields.
 - Handling invalid input values for type, brand, color, size, and price.
