@@ -33,5 +33,15 @@ public class Main {
         Arrays.sort(clothes, Comparator.comparingInt(Clothing::getSize).reversed());
         System.out.println("\n=== Sorted by size (descending) ===");
         Arrays.stream(clothes).forEach(System.out::println);
+
+        // Find an identical object
+        Clothing target = new Clothing("Sweater", "Puma", "Green", 60.0, 43);
+        int index = Arrays.asList(clothes).indexOf(target);
+
+        if (index >= 0) {
+            System.out.println("\nFound identical clothing at index " + index + ": " + clothes[index]);
+        } else {
+            System.out.println("\nNo identical object found.");
+        }
     }
 }
