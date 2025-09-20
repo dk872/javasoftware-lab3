@@ -30,21 +30,39 @@ class ClothingTest {
     }
 
     @Test
-    void testInvalidType() {
+    void testInvalidTypeNull() {
         assertThrows(IllegalArgumentException.class, () ->
-                new Clothing("", "Nike", "Red", 25.0, 42));
+                new Clothing(null, "Nike", "Red", 25.0, 42));
     }
 
     @Test
-    void testInvalidBrand() {
+    void testInvalidBrandNull() {
         assertThrows(IllegalArgumentException.class, () ->
                 new Clothing("T-shirt", null, "Red", 25.0, 42));
     }
 
     @Test
-    void testInvalidColor() {
+    void testInvalidColorNull() {
         assertThrows(IllegalArgumentException.class, () ->
-                new Clothing("T-shirt", "Nike", " ", 25.0, 42));
+                new Clothing("T-shirt", "Nike", null, 25.0, 42));
+    }
+
+    @Test
+    void testInvalidTypeEmpty() {
+        assertThrows(IllegalArgumentException.class, () ->
+                new Clothing("", "Nike", "Red", 25.0, 42));
+    }
+
+    @Test
+    void testInvalidBrandEmpty() {
+        assertThrows(IllegalArgumentException.class, () ->
+                new Clothing("T-shirt", "", "Red", 25.0, 42));
+    }
+
+    @Test
+    void testInvalidColorEmpty() {
+        assertThrows(IllegalArgumentException.class, () ->
+                new Clothing("T-shirt", "Nike", "", 25.0, 42));
     }
 
     @Test
