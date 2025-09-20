@@ -18,20 +18,16 @@ public class Main {
                 new Clothing("Jacket", "Adidas", "Black", 120.0, 44),
                 new Clothing("Jeans", "Levi's", "Blue", 80.0, 40),
                 new Clothing("Sweater", "Puma", "Green", 60.0, 43),
-                new Clothing("Shirt", "H&M", "White", 30.0, 41)
+                new Clothing("Sweater", "H&M", "White", 30.0, 41),
+                new Clothing("Jacket", "Zara", "Blue", 110.0, 43)
         };
 
         System.out.println("=== Initial array ===");
         Arrays.stream(clothes).forEach(System.out::println);
 
-        // Sort by price (ascending)
-        Arrays.sort(clothes, Comparator.comparingDouble(Clothing::getPrice));
-        System.out.println("\n=== Sorted by price (ascending) ===");
-        Arrays.stream(clothes).forEach(System.out::println);
-
-        // Sort by size (descending)
-        Arrays.sort(clothes, Comparator.comparingInt(Clothing::getSize).reversed());
-        System.out.println("\n=== Sorted by size (descending) ===");
+        // Sort by type ascending, then brand descending
+        sortByTypeAndBrand(clothes);
+        System.out.println("\n=== Sorted by type (asc), then brand (desc) ===");
         Arrays.stream(clothes).forEach(System.out::println);
 
         // Find an identical object
@@ -43,5 +39,18 @@ public class Main {
         } else {
             System.out.println("\nNo identical object found.");
         }
+    }
+
+    /**
+     * Sorts an array of Clothing objects:
+     * - first by type ascending (A→Z)
+     * - then by brand descending (Z→A) if types are equal
+     *
+     * @param clothes array of Clothing objects to sort
+     */
+    private static void sortByTypeAndBrand(Clothing[] clothes) {
+        Arrays.sort(clothes,
+                Comparator.comparing(Clothing::getType)
+                        .thenComparing(Comparator.comparing(Clothing::getBrand).reversed()));
     }
 }
