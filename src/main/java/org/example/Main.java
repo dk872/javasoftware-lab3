@@ -23,5 +23,15 @@ public class Main {
 
         System.out.println("=== Initial array ===");
         Arrays.stream(clothes).forEach(System.out::println);
+
+        // Sort by price (ascending)
+        Arrays.sort(clothes, Comparator.comparingDouble(Clothing::getPrice));
+        System.out.println("\n=== Sorted by price (ascending) ===");
+        Arrays.stream(clothes).forEach(System.out::println);
+
+        // Sort by size (descending)
+        Arrays.sort(clothes, Comparator.comparingInt(Clothing::getSize).reversed());
+        System.out.println("\n=== Sorted by size (descending) ===");
+        Arrays.stream(clothes).forEach(System.out::println);
     }
 }
