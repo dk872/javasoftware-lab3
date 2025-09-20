@@ -129,12 +129,24 @@ class Clothing {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof org.example.Clothing other)) return false;
+        if (!(obj instanceof Clothing other)) return false;
 
         return Double.compare(other.getPrice(), getPrice()) == 0 &&
                 other.getSize() == getSize() &&
                 Objects.equals(other.getType(), getType()) &&
                 Objects.equals(other.getBrand(), getBrand()) &&
                 Objects.equals(other.getColor(), getColor());
+    }
+
+    /**
+     * Returns a hash code value for the Clothing object.
+     * The hash code is computed based on all fields (type, brand, color, price, size)
+     * to ensure consistency with the equals() method.
+     *
+     * @return hash code of the object
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, brand, color, price, size);
     }
 }
