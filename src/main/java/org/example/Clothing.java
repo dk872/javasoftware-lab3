@@ -22,10 +22,40 @@ class Clothing {
      * @param size  the size of clothing
      */
     public Clothing(String type, String brand, String color, double price, int size) {
+        validateFields(type, brand, color, size, price);
+
         this.type = type;
         this.brand = brand;
         this.color = color;
         this.price = price;
         this.size = size;
+    }
+
+    /**
+     * Validates constructor arguments.
+     *
+     * @param type  clothing type
+     * @param brand clothing brand
+     * @param color clothing color
+     * @param size  clothing size
+     * @param price clothing price
+     * @throws IllegalArgumentException if any parameter is invalid
+     */
+    private void validateFields(String type, String brand, String color, int size, double price) {
+        if (type == null || type.trim().isEmpty()) {
+            throw new IllegalArgumentException("Type cannot be null or empty");
+        }
+        if (brand == null || brand.trim().isEmpty()) {
+            throw new IllegalArgumentException("Brand cannot be null or empty");
+        }
+        if (color == null || color.trim().isEmpty()) {
+            throw new IllegalArgumentException("Color cannot be null or empty");
+        }
+        if (size <= 0) {
+            throw new IllegalArgumentException("Size must be positive");
+        }
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
     }
 }
