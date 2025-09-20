@@ -103,4 +103,20 @@ class Clothing {
             throw new IllegalArgumentException("Price cannot be negative");
         }
     }
+
+    /**
+     * Provides string representation of the Clothing object.
+     *
+     * @return string containing clothing details
+     */
+    @Override
+    public String toString() {
+        return "Clothing{" +
+                "type='" + type + '\'' +
+                ", brand='" + brand + '\'' +
+                ", color='" + color + '\'' +
+                ", price=" + price +
+                ", size=" + size +
+                '}';
+    }
 }
