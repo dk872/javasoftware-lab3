@@ -37,7 +37,7 @@ java -cp src/main/java org.example.Main
 ```
 
 ## Unit tests
-This project includes **17** unit tests using JUnit 5 to ensure the correctness of all core functionalities, including:
+This project includes **16** unit tests using JUnit 5 to ensure the correctness of all core functionalities, including:
 
 - Creating valid Clothing objects and verifying their fields.
 - Handling invalid input values for type, brand, color, size, and price.
