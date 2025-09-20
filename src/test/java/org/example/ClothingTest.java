@@ -107,29 +107,36 @@ class ClothingTest {
     }
 
     @Test
-    void testSortByPriceAscending() {
+    void testSortByTypeAndBrand() {
         Clothing[] clothes = {
                 new Clothing("Jacket", "Adidas", "Black", 120.0, 44),
                 new Clothing("Shirt", "H&M", "White", 30.0, 41),
                 new Clothing("T-shirt", "Nike", "Red", 25.0, 42),
+                new Clothing("Jacket", "Zara", "Blue", 110.0, 43)
         };
-        Arrays.sort(clothes, Comparator.comparingDouble(Clothing::getPrice));
 
-        assertEquals(25.0, clothes[0].getPrice());
-        assertEquals(120.0, clothes[2].getPrice());
-    }
+        // Sort by type ascending, then brand descending
+        Arrays.sort(clothes,
+                Comparator.comparing(Clothing::getType)
+                        .thenComparing(Comparator.comparing(Clothing::getBrand).reversed()));
 
-    @Test
-    void testSortBySizeDescending() {
-        Clothing[] clothes = {
-                new Clothing("Jacket", "Adidas", "Black", 120.0, 44),
-                new Clothing("Shirt", "H&M", "White", 30.0, 41),
-                new Clothing("T-shirt", "Nike", "Red", 25.0, 42),
-        };
-        Arrays.sort(clothes, Comparator.comparingInt(Clothing::getSize).reversed());
+        // Expected order:
+        // Jacket, Zara
+        // Jacket, Adidas
+        // Shirt, H&M
+        // T-shirt, Nike
 
-        assertEquals(44, clothes[0].getSize());
-        assertEquals(41, clothes[2].getSize());
+        assertEquals("Jacket", clothes[0].getType());
+        assertEquals("Zara", clothes[0].getBrand());
+
+        assertEquals("Jacket", clothes[1].getType());
+        assertEquals("Adidas", clothes[1].getBrand());
+
+        assertEquals("Shirt", clothes[2].getType());
+        assertEquals("H&M", clothes[2].getBrand());
+
+        assertEquals("T-shirt", clothes[3].getType());
+        assertEquals("Nike", clothes[3].getBrand());
     }
 
     @Test
@@ -164,18 +171,33 @@ class ClothingTest {
                 new Clothing("Jacket", "Adidas", "Black", 120.0, 44),
                 new Clothing("Jeans", "Levi's", "Blue", 80.0, 40),
                 new Clothing("Sweater", "Puma", "Green", 60.0, 43),
-                new Clothing("Shirt", "H&M", "White", 30.0, 41)
+                new Clothing("Sweater", "H&M", "White", 30.0, 41),
+                new Clothing("Jacket", "Zara", "Blue", 110.0, 43)
         };
 
-        // Step 2: sort by price ascending
-        Arrays.sort(clothes, Comparator.comparingDouble(Clothing::getPrice));
-        assertEquals(25.0, clothes[0].getPrice());
-        assertEquals(120.0, clothes[4].getPrice());
+        // Step 2: sort by type ascending, then brand descending
+        Arrays.sort(clothes,
+                Comparator.comparing(Clothing::getType)
+                        .thenComparing(Comparator.comparing(Clothing::getBrand).reversed()));
 
-        // Step 3: sort by size descending
-        Arrays.sort(clothes, Comparator.comparingInt(Clothing::getSize).reversed());
-        assertEquals(44, clothes[0].getSize());
-        assertEquals(40, clothes[4].getSize());
+        // Step 3: check sorted order
+        assertEquals("Jacket", clothes[0].getType());
+        assertEquals("Zara", clothes[0].getBrand());
+
+        assertEquals("Jacket", clothes[1].getType());
+        assertEquals("Adidas", clothes[1].getBrand());
+
+        assertEquals("Jeans", clothes[2].getType());
+        assertEquals("Levi's", clothes[2].getBrand());
+
+        assertEquals("Sweater", clothes[3].getType());
+        assertEquals("Puma", clothes[3].getBrand());
+
+        assertEquals("Sweater", clothes[4].getType());
+        assertEquals("H&M", clothes[4].getBrand());
+
+        assertEquals("T-shirt", clothes[5].getType());
+        assertEquals("Nike", clothes[5].getBrand());
 
         // Step 4: find identical object
         Clothing target = new Clothing("Sweater", "Puma", "Green", 60.0, 43);
