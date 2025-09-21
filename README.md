@@ -11,8 +11,8 @@ C11 = 15 % 11 = **4**.
 ## Features
 - Create Clothing objects with type, brand, color, price, and size.
 - Validate object fields to prevent invalid data.
-- Sort an array of clothing items by price in ascending order.
-- Sort an array of clothing items by size in descending order.
+- Sort an array of clothing items by type in ascending order.
+- Sort an array of clothing items by brand in descending order.
 - Search for an identical clothing object in the array.
 - Display the initial array, sorted arrays, and search results in the console.
 - Includes overridden equals(), hashCode(), and toString() methods for proper object comparison and display.
@@ -43,7 +43,7 @@ This project includes **16** unit tests using JUnit 5 to ensure the correctness 
 - Handling invalid input values for type, brand, color, size, and price.
 - Verifying `equals()` and `hashCode()` methods for object comparison.
 - Testing `toString()` output contains all fields.
-- Sorting arrays of Clothing objects by price (ascending) and size (descending).
+- Sorting arrays of Clothing objects by type (ascending) and brand (descending).
 - Finding identical objects in an array and handling non-existent objects.
 - Combined operations: sorting and then searching for an identical object.
 
