@@ -4,13 +4,18 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Demonstrates usage of the Clothing class:
+ * The Main class demonstrates usage of the Clothing class:
  * - creating an array of objects
  * - sorting by different fields
  * - searching for an identical object
  */
 public class Main {
 
+     /**
+     * Main method that runs the demonstration.
+     *
+     * @param args command-line arguments (not used in this demo)
+     */
     public static void main(String[] args) {
         // Create an array of Clothing objects
         Clothing[] clothes = {
