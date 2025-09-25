@@ -29,15 +29,3 @@ jobs:
 
     - name: Run Main
       run: java -cp target/classes org.example.Main
-
-    - name: Generate Javadoc
-      run: |
-        mkdir -p docs
-        javadoc -d docs -sourcepath src/main/java -subpackages org.example -private
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs
-        publish_branch: gh-pages
