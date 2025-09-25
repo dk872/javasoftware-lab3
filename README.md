@@ -55,5 +55,14 @@ Make sure you have JUnit 5 configured, then run the tests with your preferred me
   ```
   - In an IDE like IntelliJ IDEA or Eclipse using the test runner.
 
+### Documentation
+The project includes generated **Javadoc documentation**.  
+You can browse it here: [Project Documentation](https://dk872.github.io/javasoftware-lab3/)
+
+To regenerate the documentation, run:
+```
+javadoc -d docs -sourcepath src/main/java -subpackages org.example -private
+```
+
 ## Author info
 Dmytro Kulyk, a student of group IM-32.
